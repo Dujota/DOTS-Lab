@@ -3,32 +3,28 @@
  *
  */
 
-// Element Selectors
-/**
- * select an element by id - getElementById / querySelector
- * select an element by class - querySelector
- * select an element by tag name - querySelector
- * select multiple elements by class or tag  - querySelectorAll
- */
+/* *****************  ELEMENT SELECTORS **************** */
 
- const ball = document.querySelector(`.js-ball`)
- const scoreDisplay = document.querySelector(`.js-score`)
- const levelWinner = document.querySelector(`.level-winner`)
- let score = 0;
+const ball = document.querySelector(`.js-ball`)
+const scoreDisplay = document.querySelector(`.js-score`)
+const levelWinner = document.querySelector(`.level-winner`)
+let score = 0
+/* ************** END ELEMENT SELECTORS **************** */
 
+/* ********************* FUNCTIONS ******************** */
 
- // Higer Order Functions
-
- const onBallClick = (event) => {
-    if(score < 100) {
-        score = score+10
-        scoreDisplay.innerHTML = score;
-    } else {
-        console.log(levelWinner)
-        levelWinner.style.opacity = `1`;
-        scoreDisplay.style.opacity = `0`;
-    }
+const onBallClick = event => {
+  if (score < 100) {
+    score = score + 10
+    scoreDisplay.innerHTML = score
+  } else {
+    console.log(levelWinner)
+    levelWinner.style.opacity = `1`
+    scoreDisplay.style.opacity = `0`
+  }
 }
+/* ***************** END FUNCTIONS ******************* */
 
- // Event Listeners
-ball.addEventListener(`click`,onBallClick)
+/* ***************** EVENT LISTENERS ***************** */
+ball.addEventListener(`click`, onBallClick)
+/* ************** END EVENT LISTENERS **************** */
