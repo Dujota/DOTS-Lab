@@ -57,14 +57,14 @@ ball.addEventListener('click', function() {
 ```
 For our game to work we'll need to add logic inside the event listener's callback function. What should happen when the `ball` is `clicked`?
 - Make sure to `console.log` with each step to be sure your logic is working properly!
-  [] Firstly, we should increment the `score` by `10` 
-  [] Next, we'll need to make sure that a player sees that their score has gone up
-  [] Set the `innerText` property of `scoreDisplay` equal to `score` to accomplish this
-  [] Finally, what needs to happen if a player's `score` reaches `100`?
-  [] Write a conditional statement that checks if the player's `score` is `greater than or equal to 100`
-  [] If their `score` is at or above `100` we'll need to reflect that by showing the player that they've beaten the level
-  [] To show that the player has won, we'll need to target `opacity` within the `style` property of `levelWinner` and set its value to `1`
-[] Now when a player interacts with Level 1, their `score` display should update as they click the `ball` and they should have a win message appear when their `score` reaches `100`!
+  [x] Firstly, we should increment the `score` by `10` 
+  [x] Next, we'll need to make sure that a player sees that their score has gone up
+  [x] Set the `innerText` property of `scoreDisplay` equal to `score` to accomplish this
+  [x] Finally, what needs to happen if a player's `score` reaches `100`?
+  [x] Write a conditional statement that checks if the player's `score` is `greater than or equal to 100`
+  [x] If their `score` is at or above `100` we'll need to reflect that by showing the player that they've beaten the level
+  [x] To show that the player has won, we'll need to target `opacity` within the `style` property of `levelWinner` and set its value to `1`
+[x] Now when a player interacts with Level 1, their `score` display should update as they click the `ball` and they should have a win message appear when their `score` reaches `100`!
 
 And with that, we've completed Level 1! Great work!
 

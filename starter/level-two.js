@@ -7,8 +7,24 @@ const scoreDisplay = document.querySelector(".js-score");
 const levelWinner = document.querySelector(".level-winner");
 
 //Callback Functions
-/** LEVEL 2 - 
- *  
+const increaseScoreByTen = () =>{ 
+    score = score+10;
+    let scoreString = score.toString();
+    scoreDisplay.innerText=scoreString.padStart(4, "0");
+}
 
-*/
+const winLevelTwo = ()=>{
+    if (score>=100){
+            levelWinner.style.opacity = 1;
+    }
+}
 //Event Listeners
+const increaseScoreLevelTwo = ()=>{
+    for (i=0; i<ball.length; i++){
+        ball[i].addEventListener('click', event=>{
+            increaseScoreByTen();
+            winLevelTwo();
+        })
+    }
+}
+increaseScoreLevelTwo()
