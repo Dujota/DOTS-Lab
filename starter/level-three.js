@@ -2,12 +2,13 @@
  * DOTS: Level Three
  *
  */
-let score = 0;
+var score = 0;
 const allBalls = document.querySelectorAll('.js-ball');
 const scoreDisplay = document.querySelector('.js-score');
 const levelWinner = document.querySelector('.level-winner');
 
 const ballClicked = (Event) => {
+    // get points value from event current target
     const points = parseInt(Event.currentTarget.getAttribute('data-increment'));
 
     score += points;
