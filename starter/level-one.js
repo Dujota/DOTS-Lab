@@ -16,7 +16,7 @@ const levelWinner = document.querySelector('.level-winner')
     console.log("Score = ", score)
     console.log("scoreDisplay =", scoreDisplay.innertext)
 //change condition back  to 100
-    if (score >= 30) {
+    if (score >= 100) {
      levelWinner.style.opacity = 1;
      console.log("score 100 or greater and opacity =", levelWinner.style.opacity)
     }
