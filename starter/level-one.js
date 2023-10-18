@@ -1,7 +1,7 @@
 // Variables
 let score = 0;
 
-let ball = document.querySelector('.level-arena');
+let ball = document.querySelector('.js-ball');
 const scoreDisplay = document.querySelector('.js-score');
 const levelWinner = document.querySelector('.level-winner');
 
