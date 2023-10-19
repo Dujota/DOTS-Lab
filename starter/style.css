@@ -29,10 +29,12 @@ a {
   color: #fff;
   text-decoration: none;
 }
+
 /*---
  * Animations
  --- */
 @keyframes blink {
+
   0%,
   100% {
     opacity: 1;
@@ -61,6 +63,29 @@ a {
   }
 }
 
+@keyframes upAndDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  20% {
+    transform: translateY(-400%);
+  }
+
+  25% {
+    transform: translateY(-500%);
+  }
+
+  75% {
+    transform: translateY(500%);
+    transform: translateX(900%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /*---
  * Base
  --- */
@@ -77,12 +102,14 @@ a {
   text-transform: uppercase;
   font-size: 2rem;
 }
+
 .title.\--xl-large {
   display: block;
   position: relative;
   font-size: 6rem;
   letter-spacing: 10px;
 }
+
 .title.\--xl-large:before {
   content: '';
   position: absolute;
@@ -119,6 +146,10 @@ a {
   background-color: #fff;
   animation: 7s linear infinite backAndForth;
   cursor: pointer;
+}
+
+.level-four .ball {
+  animation: 4s linear infinite upAndDown;
 }
 
 /*---
@@ -259,4 +290,46 @@ a {
   height: 3rem;
   width: 3rem;
   animation-delay: 2s;
+}
+
+.level-four .ball:last-of-type {
+  top: 25%;
+  left: 28%;
+  animation-delay: 2s;
+}
+
+.level-four .ball:first-of-type {
+  top: 75%;
+  left: 45%;
+  animation-delay: 1s;
+}
+
+.level-four .ball:nth-child(4) {
+  top: 25%;
+  left: 45%;
+  animation-delay: 3s;
+}
+
+.level-four .ball:nth-child(3) {
+  top: 65%;
+  left: 25%;
+  animation-delay: 2s;
+}
+
+.level-four .ball:nth-child(5) {
+  top: 45%;
+  left: 85%;
+  animation-delay: 2s;
+}
+
+.level-four .ball:nth-child(6) {
+  top: 25%;
+  left: 75%;
+  animation-delay: 1s;
+}
+
+.level-four .ball {
+  height: 0.5rem;
+  width: 0.5rem;
+  animation-delay: 1.5s;
 }

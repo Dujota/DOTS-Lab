@@ -1,8 +1,3 @@
-/*
- * DOTS: Level Three
- *
- */
-
 const scoreDisplay = document.querySelector('.js-score')
 const balls = document.querySelectorAll('.js-ball')
 const levelWinner = document.querySelector('.level-winner')
