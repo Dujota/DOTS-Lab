@@ -16,14 +16,12 @@ var levelWinner = document.querySelector('.level-winner');
 /* Renderers */
 
 function renderDisplay(e) {
-    // scoreDisplay = Number((leadingZeros.padStart(4,'0') + (e)).slice(-4)) + e; //If I want to double up
-    //scoreDisplay.innerText = (leadingZeros.padStart(4,'0') + (e)).slice(-4);
+    // scoreDisplay = Number((leadingZeros.padStart(4,'0') + (e)).slice(-4)) + e; // If I want to double up comment out line 43
+    //scoreDisplay.innerText = (leadingZeros.padStart(4,'0') + (e)).slice(-4); // Figuring how to display the leading zeros and integer as String
 
-    // console.log(e);
     // scoreDisplay = Number((leadingZeros.padStart(4,'0') + (e)).slice(-4));
     
     console.log((leadingZeros.padStart(4,'0') + (e)).slice(-4));
-    console.log(e);
     // scoreDisplay = Number((leadingZeros.padStart(4,'0') + (e)).slice(-4));
 }
 
@@ -40,9 +38,9 @@ function displayWinner() {
 
 function incrementScore() {
     score = scoreDisplay += 10;
-    // score = Number((leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4));
+    // score = Number((leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4)); // Makes into number removes the leading zeros 🤦‍♂️
     // console.log(Number((leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4)));
-    score = (leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4);
+    score = (leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4);  // Adds the leading zeros
     // console.log(score);
     // console.log(scoreDisplay);
     renderDisplay(score)
