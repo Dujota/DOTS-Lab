@@ -5,17 +5,14 @@
 
 /* UI */
 
-var leadingZeros = '';
-var score = 0; //I had this as a string '', the reason why my renderDisplay wasn't working
+var score = 0;
 var scoreDisplay = document.querySelector('.js-score');
 var levelWinner = document.querySelector('.level-winner');
-
 
 /* Renderers */
 
 function renderDisplay(e) {
     scoreDisplay.innerText = e.toString().padStart(4,'0'); // An efficient way of doing ES2017 way
-    // console.log(scoreDisplay);
 }
 
 fadeIn = () => { levelWinner.style.opacity = .8; }
@@ -37,22 +34,12 @@ function incrementScore() {
 /* Events */
 
 let ball = document.querySelector('.js-ball');
-// theBall.addEventListener('click', () => {console.log('Bruh')} );
-
 
 ball.addEventListener('click', () => { 
-    // const { target } = e;
-    // console.log(target);
-    // return leadingZeros.substring(0) + scoreDisplay++;
-    // if (scoreDisplay === '0000') {
-        incrementScore()
-    //     // console.log((leadingZeros.padStart(4,'0') + scoreCounter).slice(-4));
-    //     console.log(Number((leadingZeros.padStart(4,'0') + scoreCounter).slice(-4)));
-    // }
+    incrementScore()
     if (score >= 100) {
         // check if it reaches 100 and display the winner element
         displayWinner();
         // ball.removeEventListener('click', incrementScore);
     }
 } );
-// console.log(scoreDisplay.innerText); //logs 0000 text
