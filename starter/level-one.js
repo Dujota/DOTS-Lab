@@ -6,23 +6,16 @@
 /* UI */
 
 var leadingZeros = '';
-var score = '0';
-var scoreDisplay = Number(document.querySelector('.js-score').innerText); // Get the text straight up, it's String
-// var scoreDisplay = document.querySelector('.js-score');
+var score = 0; //I had this as a string '', the reason why my renderDisplay wasn't working
+var scoreDisplay = document.querySelector('.js-score');
 var levelWinner = document.querySelector('.level-winner');
-
 
 
 /* Renderers */
 
 function renderDisplay(e) {
-    // scoreDisplay = Number((leadingZeros.padStart(4,'0') + (e)).slice(-4)) + e; // If I want to double up comment out line 43
-    // scoreDisplay.innerText = (leadingZeros.padStart(4,'0') + (e)).slice(-4); // Figuring how to display the leading zeros and integer as String, it's undefined
-    // scoreDisplay = (leadingZeros.padStart(4,'0') + (e)).slice(-4); // Figuring how to display the leading zeros, returns String + String
-
-    // scoreDisplay = Number((leadingZeros.padStart(4,'0') + (e)).slice(-4)); // Figuring how to display the leading zeros and integer as String
-    
-    console.log((leadingZeros.padStart(4,'0') + (e)).slice(-4));
+    scoreDisplay.innerText = e.toString().padStart(4,'0'); // An efficient way of doing ES2017 way
+    // console.log(scoreDisplay);
 }
 
 fadeIn = () => { levelWinner.style.opacity = .8; }
@@ -37,12 +30,7 @@ function displayWinner() {
 /* Incrementor */
 
 function incrementScore() {
-    score = scoreDisplay += 10;
-    // score = Number((leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4)); // Makes into number removes the leading zeros 🤦‍♂️
-    // console.log(Number((leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4)));
-    // score = (leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4);  // Adds the leading zeros
-    // console.log(score);
-    // console.log(scoreDisplay);
+    score += 10; // Somehow I misread the prompt about Set the `innerText` property of `scoreDisplay` equal to `score` to accomplish this. I had it as score = scoreDisplay += 10;; when I had line 10 uncommented
     renderDisplay(score)
 }
 
@@ -61,9 +49,10 @@ ball.addEventListener('click', () => {
     //     // console.log((leadingZeros.padStart(4,'0') + scoreCounter).slice(-4));
     //     console.log(Number((leadingZeros.padStart(4,'0') + scoreCounter).slice(-4)));
     // }
-    if (score >= 20) {
+    if (score >= 100) {
+        // check if it reaches 100 and display the winner element
         displayWinner();
         // ball.removeEventListener('click', incrementScore);
     }
 } );
-// console.log(scoreDisplay);
+// console.log(scoreDisplay.innerText); //logs 0000 text
