@@ -7,7 +7,7 @@
 
 var leadingZeros = '';
 var score = '0';
-var scoreDisplay = Number(document.querySelector('.js-score').innerText);
+var scoreDisplay = Number(document.querySelector('.js-score').innerText); // Get the text straight up, it's String
 // var scoreDisplay = document.querySelector('.js-score');
 var levelWinner = document.querySelector('.level-winner');
 
@@ -17,12 +17,12 @@ var levelWinner = document.querySelector('.level-winner');
 
 function renderDisplay(e) {
     // scoreDisplay = Number((leadingZeros.padStart(4,'0') + (e)).slice(-4)) + e; // If I want to double up comment out line 43
-    //scoreDisplay.innerText = (leadingZeros.padStart(4,'0') + (e)).slice(-4); // Figuring how to display the leading zeros and integer as String
+    // scoreDisplay.innerText = (leadingZeros.padStart(4,'0') + (e)).slice(-4); // Figuring how to display the leading zeros and integer as String, it's undefined
+    // scoreDisplay = (leadingZeros.padStart(4,'0') + (e)).slice(-4); // Figuring how to display the leading zeros, returns String + String
 
-    // scoreDisplay = Number((leadingZeros.padStart(4,'0') + (e)).slice(-4));
+    // scoreDisplay = Number((leadingZeros.padStart(4,'0') + (e)).slice(-4)); // Figuring how to display the leading zeros and integer as String
     
     console.log((leadingZeros.padStart(4,'0') + (e)).slice(-4));
-    // scoreDisplay = Number((leadingZeros.padStart(4,'0') + (e)).slice(-4));
 }
 
 fadeIn = () => { levelWinner.style.opacity = .8; }
@@ -40,7 +40,7 @@ function incrementScore() {
     score = scoreDisplay += 10;
     // score = Number((leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4)); // Makes into number removes the leading zeros 🤦‍♂️
     // console.log(Number((leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4)));
-    score = (leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4);  // Adds the leading zeros
+    // score = (leadingZeros.padStart(4,'0') + (scoreDisplay)).slice(-4);  // Adds the leading zeros
     // console.log(score);
     // console.log(scoreDisplay);
     renderDisplay(score)
