@@ -1,8 +1,7 @@
 /*
- * DOTS: Level One
+ * DOTS: Level Two
  *
  */
-
 /* UI */
 
 var score = 0;
@@ -26,22 +25,69 @@ function displayWinner() {
     fadeIn();
 }
 
-/* Incrementor */
+/* Iterator */
 
-function incrementScore() {
-    score += 10; // Somehow I misread the prompt about Set the `innerText` property of `scoreDisplay` equal to `score` to accomplish this. I had it as score = scoreDisplay += 10;; when I had line 10 uncommented
+function incrementScore(e) {
+    score += 10
     renderDisplay(score)
 }
 
 /* Events */
+let ballCount = 1;
+let balls = document.querySelectorAll('.js-ball');
 
-let ball = document.querySelector('.js-ball');
+// ball.forEach(() =>  addEventListener('click', () => { 
+//     incrementScore()
+//     if (score >= 100) {
+//         // check if it reaches 100 and display the winner element
+//         displayWinner();
+//         // ball.removeEventListener('click', incrementScore);
+//     }
+// } ));
 
-ball.addEventListener('click', () => { 
-    incrementScore()
+balls.forEach((ball) =>  addEventListener('click', (ball) => { 
+    // console.dir(ball.target.className);
+    // console.dir(ball.target.classList[1]);
+    
+    const { target } = ball;
+    target.dataset.ballCount = ballCount;
+
+    // if (target.dataset.ballCount <= 3) {
+    //     target.dataset.ballCount = ballCount++;
+    // }
+    
+    // console.log('----');
+    console.log(target.className);
+    console.log(target.dataset);
+    // console.dir(target.classList[1]);
+    // console.log('----');
+    console.log(ball.target.classList[1]);
+
+
+    // if ( ball.target.className.contains('ball js-ball')) {
+    if ( ball.target.classList.contains('js-ball')) {
+    // if ( ball.target.className === 'ball js-ball') {
+        // switch (ball) {
+        //     case balls[0]:
+        //         incrementScore();
+        //         break;
+        //     case balls[1]:
+        //         incrementScore();
+        //         break;
+        //     case balls[2]:
+        //         incrementScore();
+        //         break;
+        //     default:
+        //         console.log('what is going on');
+        //         incrementScore();
+        //         break;
+        // }
+        console.log('what is going on');
+    }
     if (score >= 100) {
         // check if it reaches 100 and display the winner element
         displayWinner();
         // ball.removeEventListener('click', incrementScore);
     }
-} );
+    
+} ));
