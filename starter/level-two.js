@@ -33,61 +33,83 @@ function incrementScore(e) {
 }
 
 /* Events */
-let ballCount = 1;
+// let ballCount = 1;
 let balls = document.querySelectorAll('.js-ball');
 
-// ball.forEach(() =>  addEventListener('click', () => { 
+
+// balls.forEach((ball) =>  ball.addEventListener('click', () => { 
 //     incrementScore()
+//     // console.log(ball);
+//     if (score >= 100) {
+//         // check if it reaches 100 and display the winner element
+//         displayWinner();
+//         balls.forEach((ball) => {
+//             ball.removeEventListener('click', balls);
+//          // console.log(ball.removeEventListener);
+//         });
+//     }
+// } )); // the removeEventListener was not working, attempting a new approach, because of scope issue
+
+
+function handleClick(event) {
+    incrementScore();
+    if (score >= 100) {
+      displayWinner();
+      balls.forEach((ball) => {
+        ball.removeEventListener('click', handleClick);
+        ball.style.pointerEvents = "none"; // a fall back if it doesn't remove the event listener
+      });
+    }
+}
+
+balls.forEach((ball) => {
+    ball.addEventListener('click', handleClick);
+});
+
+
+// balls.forEach((ball) =>  addEventListener('click', (ball) => { 
+//     // console.dir(ball.target.className);
+//     // console.dir(ball.target.classList[1]);
+    
+//     const { target } = ball;
+//     target.dataset.ballCount = ballCount;
+
+//     if (target.dataset.ballCount <= 3) {
+//         target.dataset.ballCount = ballCount++;
+//     }
+    
+//     // console.log('----');
+//     console.log(target.className);
+//     console.log(target.dataset);
+//     // console.dir(target.classList[1]);
+//     // console.log('----');
+//     console.log(ball.target.classList[1]);
+
+
+//     // if ( ball.target.className.contains('ball js-ball')) {
+//     if ( ball.target.classList.contains('js-ball')) {
+//     // if ( ball.target.className === 'ball js-ball') {
+//         // switch (ball) {
+//         //     case balls[0]:
+//         //         incrementScore();
+//         //         break;
+//         //     case balls[1]:
+//         //         incrementScore();
+//         //         break;
+//         //     case balls[2]:
+//         //         incrementScore();
+//         //         break;
+//         //     default:
+//         //         console.log('what is going on');
+//         //         incrementScore();
+//         //         break;
+//         // }
+//         console.log('what is going on');
+//     }
 //     if (score >= 100) {
 //         // check if it reaches 100 and display the winner element
 //         displayWinner();
 //         // ball.removeEventListener('click', incrementScore);
 //     }
+    
 // } ));
-
-balls.forEach((ball) =>  addEventListener('click', (ball) => { 
-    // console.dir(ball.target.className);
-    // console.dir(ball.target.classList[1]);
-    
-    const { target } = ball;
-    target.dataset.ballCount = ballCount;
-
-    // if (target.dataset.ballCount <= 3) {
-    //     target.dataset.ballCount = ballCount++;
-    // }
-    
-    // console.log('----');
-    console.log(target.className);
-    console.log(target.dataset);
-    // console.dir(target.classList[1]);
-    // console.log('----');
-    console.log(ball.target.classList[1]);
-
-
-    // if ( ball.target.className.contains('ball js-ball')) {
-    if ( ball.target.classList.contains('js-ball')) {
-    // if ( ball.target.className === 'ball js-ball') {
-        // switch (ball) {
-        //     case balls[0]:
-        //         incrementScore();
-        //         break;
-        //     case balls[1]:
-        //         incrementScore();
-        //         break;
-        //     case balls[2]:
-        //         incrementScore();
-        //         break;
-        //     default:
-        //         console.log('what is going on');
-        //         incrementScore();
-        //         break;
-        // }
-        console.log('what is going on');
-    }
-    if (score >= 100) {
-        // check if it reaches 100 and display the winner element
-        displayWinner();
-        // ball.removeEventListener('click', incrementScore);
-    }
-    
-} ));
